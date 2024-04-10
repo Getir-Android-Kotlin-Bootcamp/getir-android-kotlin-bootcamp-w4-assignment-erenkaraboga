@@ -1,4 +1,4 @@
-package com.week4.getir.apicallexample.data.model
+package com.week4.getir.apicallexample.data.model.request
 
 data class LoginRequestModel(
     val email: String,
