@@ -1,5 +1,8 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.di
 
+import com.week4.getir.apicallexample.domain.repositories.UserRepository
+import com.week4.getir.apicallexample.data.repositories.UserRepositoryImpl
+import com.week4.getir.apicallexample.data.remote.ApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

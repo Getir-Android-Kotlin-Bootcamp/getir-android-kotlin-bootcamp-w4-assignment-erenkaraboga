@@ -1,4 +1,4 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.common
 
 sealed class Resource<T>(val data: T? = null, val message: String = "") {
     class Loading<T>(data: T? = null) : Resource<T>(data)

@@ -1,5 +1,6 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.common
 
+import com.week4.getir.apicallexample.data.model.LoginRequestModel
 import org.json.JSONObject
 
 fun String.combineWithPath(path: String): String {

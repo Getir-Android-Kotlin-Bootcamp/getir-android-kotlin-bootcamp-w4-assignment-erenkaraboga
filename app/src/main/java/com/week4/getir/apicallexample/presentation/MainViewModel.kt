@@ -1,8 +1,10 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.presentation
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.week4.getir.apicallexample.common.Resource
+import com.week4.getir.apicallexample.data.model.LoginRequestModel
+import com.week4.getir.apicallexample.domain.use_cases.LoginUseCase
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*

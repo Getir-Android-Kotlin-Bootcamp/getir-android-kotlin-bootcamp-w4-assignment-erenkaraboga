@@ -1,6 +1,8 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.domain.use_cases
 
-import android.net.http.HttpException
+import com.week4.getir.apicallexample.data.model.LoginRequestModel
+import com.week4.getir.apicallexample.common.Resource
+import com.week4.getir.apicallexample.domain.repositories.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException

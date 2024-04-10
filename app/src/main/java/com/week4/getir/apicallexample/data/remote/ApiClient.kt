@@ -1,10 +1,11 @@
-package com.week4.getir.apicallexample
+package com.week4.getir.apicallexample.data.remote
 
-import kotlinx.coroutines.CoroutineScope
+import com.week4.getir.apicallexample.BuildConfig
+import com.week4.getir.apicallexample.data.model.LoginRequestModel
+import com.week4.getir.apicallexample.common.combineWithPath
+import com.week4.getir.apicallexample.common.toJsonObject
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.InputStreamReader
