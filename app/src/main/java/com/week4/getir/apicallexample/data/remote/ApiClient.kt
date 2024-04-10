@@ -1,9 +1,11 @@
 package com.week4.getir.apicallexample.data.remote
 
 import com.week4.getir.apicallexample.BuildConfig
-import com.week4.getir.apicallexample.data.model.LoginRequestModel
+import com.week4.getir.apicallexample.data.model.request.LoginRequestModel
 import com.week4.getir.apicallexample.common.combineWithPath
 import com.week4.getir.apicallexample.common.toJsonObject
+import com.week4.getir.apicallexample.common.toProfileResponseModel
+import com.week4.getir.apicallexample.data.model.response.ProfileResponseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
@@ -45,6 +47,32 @@ class ApiClient() {
                 response.toString()
             } else {
                 ""
+            }
+        }
+    }
+    suspend fun getProfile(userId: String): ProfileResponseModel? {
+        return withContext(Dispatchers.IO) {
+            val url = BuildConfig.BASE_URL.combineWithPath("profile/${userId}")
+            val urlObject = URL(url)
+            val connection = urlObject.openConnection() as HttpURLConnection
+
+            connection.setRequestProperty("Content-Type", "application/json; charset=utf8")
+            connection.requestMethod = "GET"
+
+            val responseCode = connection.responseCode
+            println("Response Code: $responseCode")
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                val inputStream = BufferedReader(InputStreamReader(connection.inputStream))
+                var inputLine: String?
+                val response = StringBuffer()
+                while (inputStream.readLine().also { inputLine = it } != null) {
+                    response.append(inputLine)
+                }
+                inputStream.close()
+                response.toString().toProfileResponseModel()
+            } else {
+                null
             }
         }
     }
