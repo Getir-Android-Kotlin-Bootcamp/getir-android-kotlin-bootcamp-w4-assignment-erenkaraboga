@@ -38,11 +38,16 @@ class MainViewModel @Inject constructor(
             when (it) {
                 is Resource.Error -> {
                     _userState.value = UserViewState.Error(it.message)
+                    _userState.value = UserViewState.IsLoading(false)
+
                 }
                 is Resource.Loading -> {
+                    _userState.value = UserViewState.IsLoading(true)
+
                 }
                 is Resource.Success -> {
                     _userState.value = UserViewState.Success(it.data)
+                    _userState.value = UserViewState.IsLoading(false)
                 }
             }
 
@@ -53,11 +58,16 @@ class MainViewModel @Inject constructor(
             when (it) {
                 is Resource.Error -> {
                     _profileState.value = ProfileViewState.Error(it.message)
+                    _profileState.value = ProfileViewState.IsLoading(false)
+
                 }
                 is Resource.Loading -> {
+                    _profileState.value = ProfileViewState.IsLoading(true)
                 }
                 is Resource.Success -> {
                     _profileState.value = ProfileViewState.Success(it.data)
+                    _profileState.value = ProfileViewState.IsLoading(false)
+
                 }
             }
 

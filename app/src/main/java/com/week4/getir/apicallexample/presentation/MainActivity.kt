@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import dagger.hilt.android.AndroidEntryPoint
-
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.week4.getir.apicallexample.R
 import com.week4.getir.apicallexample.data.model.response.ProfileResponseModel
 import com.week4.getir.apicallexample.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.launchIn
@@ -82,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         binding.userInfo.text = userInfo
     }
 
-    private fun handleLoading(loading: Boolean) {}
+    private fun handleLoading(loading: Boolean) {
+        binding.progress.isVisible = loading
+    }
 
 }

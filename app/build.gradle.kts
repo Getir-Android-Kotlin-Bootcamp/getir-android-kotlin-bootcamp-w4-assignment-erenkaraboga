@@ -67,4 +67,7 @@ dependencies {
     // Coroutine Lifecycle Scopes
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    implementation ("com.airbnb.android:lottie:6.4.0")
+
 }
