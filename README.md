@@ -36,5 +36,5 @@ Before running the project, make sure to configure the following:
 
 - Replace the login informations in `MainViewModel` with your actual informations
 - Make sure your informations for login is correct
-- 
+  
 https://github.com/Getir-Android-Kotlin-Bootcamp/getir-android-kotlin-bootcamp-w4-assignment-erenkaraboga/assets/74095539/a7785db7-7e8b-43c2-b595-101f9a33f85a
