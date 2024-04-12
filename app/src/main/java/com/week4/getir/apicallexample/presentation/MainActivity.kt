@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.week4.getir.apicallexample.R
 import com.week4.getir.apicallexample.data.model.response.ProfileResponseModel
 import com.week4.getir.apicallexample.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.launchIn
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         when (state) {
             MainViewModel.UserViewState.Init -> Unit
             is MainViewModel.UserViewState.Error -> this.let {
-                Toast.makeText(this, "Error when fetch user", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_when_fetch_user), Toast.LENGTH_SHORT).show()
             }
 
             is MainViewModel.UserViewState.Success -> state.data?.let {
@@ -60,7 +61,8 @@ class MainActivity : AppCompatActivity() {
         when (state) {
             MainViewModel.ProfileViewState.Init -> Unit
             is MainViewModel.ProfileViewState.Error -> this.let {
-                Toast.makeText(this, "Error when fetch profile", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.error_when_fetch_profile), Toast.LENGTH_SHORT).show()
             }
 
             is MainViewModel.ProfileViewState.Success -> state.data?.let {
@@ -77,7 +79,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onProfileFetchSuccess(data: ProfileResponseModel) {
-        val userInfo = "Email: ${data.email} \nFullName: ${data.fullName} \nPassword: ${data.password}"
+        val userInfo =
+            getString(R.string.email_fullname_password, data.email, data.fullName, data.password)
         binding.userInfo.text = userInfo
     }
 

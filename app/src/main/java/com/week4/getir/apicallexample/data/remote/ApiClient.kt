@@ -14,7 +14,7 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-class ApiClient() {
+class ApiClient {
 
     suspend fun login(loginRequestModel: LoginRequestModel): String {
         return withContext(Dispatchers.IO) {
@@ -32,10 +32,7 @@ class ApiClient() {
             outputStream.write(postData.toByteArray(Charsets.UTF_8))
             outputStream.flush()
             outputStream.close()
-
             val responseCode = connection.responseCode
-            println("Response Code: $responseCode")
-
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 val inputStream = BufferedReader(InputStreamReader(connection.inputStream))
                 var inputLine: String?
@@ -58,10 +55,7 @@ class ApiClient() {
 
             connection.setRequestProperty("Content-Type", "application/json; charset=utf8")
             connection.requestMethod = "GET"
-
             val responseCode = connection.responseCode
-            println("Response Code: $responseCode")
-
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 val inputStream = BufferedReader(InputStreamReader(connection.inputStream))
                 var inputLine: String?
